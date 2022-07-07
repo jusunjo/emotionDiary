@@ -8,11 +8,11 @@ const DiaryItem = ({ it }) => {
     const strDate = new Date(parseInt(it.date)).toLocaleDateString();
 
     const goDetail = () => {
-        navigate(`/diary/${it.id}`);
+        navigate(`/diary/${it.unique}`);
     };
 
     const goEdit = () => {
-        navigate(`/edit/${it.id}`);
+        navigate(`/edit/${it.unique}`);
     };
 
     return (

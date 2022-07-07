@@ -13,6 +13,7 @@ const Diary = () => {
     const goEdit = () => {
         navigate(`/edit/${getData.id}`);
     };
+
     return (
         <div className="Diary">
             <MyHeader headText={`그 날의 기록`} leftChild={<MyButton onClick={() => navigate(-1)} text={"뒤로가기"} />} rightChild={<MyButton onClick={goEdit} text={"수정하기"} />} />

@@ -1,6 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-let id = 0;
 const write = createSlice({
     name: "write",
 
@@ -18,7 +17,7 @@ const write = createSlice({
             return {
                 ...state,
                 writeList: state.writeList.concat({
-                    id: id++,
+                    unique: Math.floor(Math.random() * new Date()),
                     date: new Date(action.payload.date).getTime(),
                     content: action.payload.content,
                     emotion: action.payload.emotion,
@@ -28,7 +27,20 @@ const write = createSlice({
         update: (state, action) => {
             return {
                 ...state,
-                writeList: "",
+                writeList: [
+                    ...state.writeList,
+                    state.writeList.forEach((it) => {
+                        if (it.unique == action.payload.unique) {
+                            return { unique: action.payload.unique, date: 1656028800000, content: action.payload.content, emotion: action.payload.emotion };
+                        }
+                    }),
+                ],
+
+                //  state.writeList.forEach((it) => {
+                //     if (it.unique === action.payload.unique) {
+                //         return console.log(it);
+                //     }
+                // }),
             };
             ///{date: '2022-06-03', emotion: 5, content: '끔찍함'} 이렇게 생긴 객체가 온다.
         },

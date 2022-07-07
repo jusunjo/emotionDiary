@@ -72,6 +72,8 @@ const DiaryEditor = () => {
         }
     };
 
+    console.log(info);
+
     return (
         <div className="DiaryEditor">
             <MyHeader

@@ -44,7 +44,9 @@ const Edit = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
-    const getData = useSelector((it) => it.write.writeList[id]);
+    const b = useSelector((it) => it.write.writeList);
+
+    const getData = b.filter((it) => String(it.unique) == id);
 
     let year = new Date(getData.date).getFullYear();
     let month = "0" + (new Date(getData.date).getMonth() + 1);
@@ -56,6 +58,7 @@ const Edit = () => {
         date: dateString,
         emotion: getData.emotion,
         content: getData.content,
+        unique: id,
     });
 
     const onChange = (e) => {
@@ -76,13 +79,15 @@ const Edit = () => {
         navigate("/");
     };
 
-    console.log(info);
+    console.log(getData);
 
     const handleDelete = () => {
-        dispatch(remove(getData.id));
+        dispatch(remove(getData.unique));
 
         navigate("/");
     };
+
+    console.log(info);
 
     return (
         <div className="Edit">

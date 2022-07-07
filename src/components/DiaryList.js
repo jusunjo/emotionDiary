@@ -5,6 +5,8 @@ import MyButton from "./MyButton";
 
 const DiaryList = ({ diaryList }) => {
     const navigate = useNavigate();
+
+    console.log(diaryList);
     return (
         <div className="diaryList">
             <div className="newDiary">
@@ -18,8 +20,8 @@ const DiaryList = ({ diaryList }) => {
                 />
             </div>
 
-            {diaryList.map((it) => {
-                return <DiaryItem key={it.id} it={it} />;
+            {diaryList.map((it, idx) => {
+                return <DiaryItem key={it.unique} it={it} />;
             })}
         </div>
     );

@@ -22,7 +22,7 @@ const Home = () => {
     const decreaseMonth = () => {
         setRenderDate(new Date(renderDate.getFullYear(), renderDate.getMonth() - 1, renderDate.getDate()));
     };
-    console.log(data);
+    console.log("writeList :", data);
 
     return (
         <div>
