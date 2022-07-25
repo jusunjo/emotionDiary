@@ -27,14 +27,9 @@ const write = createSlice({
         update: (state, action) => {
             return {
                 ...state,
-                writeList: [
-                    ...state.writeList,
-                    state.writeList.forEach((it) => {
-                        if (it.unique == action.payload.unique) {
-                            return { unique: action.payload.unique, date: 1656028800000, content: action.payload.content, emotion: action.payload.emotion };
-                        }
-                    }),
-                ],
+                writeList: state.writeList.map((it) =>
+                    it.unique == action.payload.unique ? { ...it, date: new Date(action.payload.date).getTime(), content: action.payload.content, emotion: action.payload.emotion } : it
+                ),
 
                 //  state.writeList.forEach((it) => {
                 //     if (it.unique === action.payload.unique) {

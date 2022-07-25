@@ -46,7 +46,7 @@ const Edit = () => {
 
     const b = useSelector((it) => it.write.writeList);
 
-    const getData = b.filter((it) => String(it.unique) == id);
+    const getData = b.filter((it) => String(it.unique) == id)[0];
 
     let year = new Date(getData.date).getFullYear();
     let month = "0" + (new Date(getData.date).getMonth() + 1);
@@ -55,7 +55,7 @@ const Edit = () => {
 
     const [emotion, setEmotion] = useState(0);
     const [info, setInfo] = useState({
-        date: dateString,
+        date: getData.date,
         emotion: getData.emotion,
         content: getData.content,
         unique: id,
@@ -79,15 +79,16 @@ const Edit = () => {
         navigate("/");
     };
 
-    console.log(getData);
-
     const handleDelete = () => {
         dispatch(remove(getData.unique));
 
         navigate("/");
     };
 
-    console.log(info);
+    console.log("redux", b);
+
+    console.log("getData", getData);
+    console.log("info", info);
 
     return (
         <div className="Edit">
@@ -100,21 +101,21 @@ const Edit = () => {
                 <section>
                     <h4>날짜를 선택해주세요</h4>
                     <div className="input-box">
-                        <input value={info.date} name="date" className="input-date" type="date" onChange={onChange} />
+                        <input defaultValue={dateString} name="date" className="input-date" type="date" onChange={onChange} />
                     </div>
                 </section>
                 <section>
                     <h4>오늘의 감정</h4>
                     <div className="input_box emotion_list_wrapper">
                         {emotionList.map((it) => (
-                            <EmotionItem name="emotion" value={info.emotion} key={it.emotion_id} {...it} handleClickEmote={handleClickEmote} isSelected={it.emotion_id === emotion} />
+                            <EmotionItem name="emotion" defaultValue={getData.emotion} key={it.emotion_id} {...it} handleClickEmote={handleClickEmote} isSelected={it.emotion_id === emotion} />
                         ))}
                     </div>
                 </section>
                 <section>
                     <h4>오늘의 일기</h4>
                     <div className="input_box text_wrapper">
-                        <textarea value={info.content} name="content" onChange={onChange} placeholder="오늘은 어땠나요" />
+                        <textarea defaultValue={getData.content} name="content" onChange={onChange} placeholder="오늘은 어땠나요" />
                     </div>
                 </section>
                 <section className="input_button">
