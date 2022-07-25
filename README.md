@@ -40,7 +40,18 @@
 
 </br>
 
-https://user-images.githubusercontent.com/100258669/180827024-70fcd52a-1dea-4428-83eb-598b3f924285.mov
+### 일기 생성
+
+
+
+### 일기 수정
+
+
+
+### 일기 삭제
+
+
+
 
 
 
