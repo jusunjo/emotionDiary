@@ -43,16 +43,31 @@
 ### 일기 생성
 
 
+https://user-images.githubusercontent.com/100258669/180828187-322035b0-16e4-4ffb-9244-6e1c1ed5fed6.mov
+
+
+
+</br>
+
 
 ### 일기 수정
 
+
+
+https://user-images.githubusercontent.com/100258669/180828444-223329ed-abee-410f-ac2f-08e42c4be686.mov
+
+</br>
 
 
 ### 일기 삭제
 
 
 
+https://user-images.githubusercontent.com/100258669/180828651-7150e1c2-e530-4129-b8dd-9591c81bded7.mov
+
+
+### redux-toolkit.  
+<img width="1371" alt="스크린샷 2022-07-26 오전 1 32 04" src="https://user-images.githubusercontent.com/100258669/180828917-4f42adfe-29b2-411c-9325-d9cc3ab7d314.png">
 
 
 
-###
